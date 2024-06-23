@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         Employee[] workZone = new Employee[10];
@@ -18,7 +20,7 @@ public class Main {
         Employee employeeFour = new Employee(personFour, 2, 40000);
         Employee employeeFive = new Employee(personFive, 4, 25000);
         Employee employeeSix = new Employee(personSix, 1, 50000);
-        Employee employeeSeven = new Employee(personSeven, 1, 390000);
+        Employee employeeSeven = new Employee(personSeven, 1, 390010);
         Employee employeeEight = new Employee(personEight, 2, 390000);
         Employee employeeNine = new Employee(personNine, 3, 18000);
         Employee employeeTen = new Employee(personTen, 4, 28000);
@@ -40,7 +42,10 @@ public class Main {
         Employee.printAllNames(workZone);
         System.out.println(Employee.getMaximalID(workZone));
         System.out.println(Employee.getAverageSalary(workZone));
-
+        System.out.println("___________");
+        System.out.println(Employee.getAmountOfEmployees(workZone));
+        System.out.println(Employee.getEmployeesOfOneDepartment(workZone, 4));
+//        Employee.getEmployeeWithMinSalary(workZone,1);
 
     }
 }

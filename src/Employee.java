@@ -68,9 +68,7 @@ public class Employee {
         int min = workers[0].salary;
         String name = String.valueOf(workers[0].person);
         for (int i = 0; i < workers.length; i++) {
-            if (workers[i] == null) {
-                continue;
-            } else if (workers[i].salary < min) {
+            if (workers[i] != null && workers[i].salary < min) {
                 min = workers[i].salary;
                 name = String.valueOf(workers[i].person);
             }
@@ -119,6 +117,33 @@ public class Employee {
         return maxId;
     }
 
+    public static int getAmountOfEmployees(Employee[] workers) {
+        int counter = 0;
+        for (int i = 0; i < workers.length; i++) {
+            if(workers[i] != null)  {
+                counter++;
+            }
+        }
+        return counter;
+    }
+    public static Employee[] getEmployeesOfOneDepartment (Employee[] workers, int department) {
+        Employee[] workersFromOneDepartment = new Employee[getAmountOfEmployees(workers)];
+        for (int i = 0; i < workers.length; i++) {
+            if (workers[i] != null && workers[i].getDepartment() == department) {
+                workersFromOneDepartment[i] = workers[i];
+            }
+        }
+        return workersFromOneDepartment;
+    }
+
+    public static void getEmployeeWithMinSalary(Employee[] workers, int department) {
+        Employee[] employeesOfDep = getEmployeesOfOneDepartment(workers, department);
+        Employee minSalaryDepartment = employeesOfDep[0];
+        getMinimalSalaryWorker(employeesOfDep);
+        }
+
+
+    // Блок переопределений
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
