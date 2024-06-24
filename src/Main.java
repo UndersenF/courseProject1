@@ -37,15 +37,14 @@ public class Main {
 
         Employee.getAllEmployee(workZone);
         System.out.println("Затраты на ЗП - " + Employee.getSummarySalary(workZone));
-        Employee.getMinimalSalaryWorker(workZone);
-        Employee.getMaximalSalaryWorker(workZone);
+        System.out.println("Минимальная ЗП из всех работников " + Employee.getMinimalSalaryWorker(workZone));
+        System.out.println("Максимальная ЗП из всех работников " + Employee.getMaximalSalaryWorker(workZone));
         Employee.printAllNames(workZone);
-        System.out.println(Employee.getMaximalID(workZone));
         System.out.println(Employee.getAverageSalary(workZone));
         System.out.println("___________");
         System.out.println(Employee.getAmountOfEmployees(workZone));
-        System.out.println(Employee.getEmployeesOfOneDepartment(workZone, 4));
-//        Employee.getEmployeeWithMinSalary(workZone,1);
+        System.out.println("Минимальная зарплата в отделе у  - " + Employee.getEmployeeWithMinSalary(workZone,1));
+        System.out.println("Максимальная зарплата в отделе у  - " + Employee.getEmployeeWithMaxSalary(workZone,1));
 
     }
 }
