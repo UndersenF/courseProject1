@@ -56,10 +56,9 @@ public class Employee {
     public static int getSummarySalary(Employee[] workers) {
         int sum = 0;
         for (Employee worker : workers) {
-            if (worker == null) {
-                continue;
-            }
+            if (worker != null) {
             sum += worker.salary;
+            }
         }
         return sum;
     }
@@ -96,7 +95,6 @@ public class Employee {
 
     public static double getAverageSalary(Employee[] workers) {
         double averageSalary = getSummarySalary(workers) / getAmountOfEmployees(workers);
-        System.out.println("Средняя зарплата - " + averageSalary);
         return averageSalary;
     }
 
@@ -133,16 +131,28 @@ public class Employee {
         return workersFromOneDepartment;
     }
 
-    public static Employee getEmployeeWithMinSalary(Employee[] workers, int department) {
+    public static Employee getEmployeeMinSalaryDep(Employee[] workers, int department) {
         Employee[] employeesOfDep = getEmployeesOfOneDepartment(workers, department);
         Employee minSalaryOfDep  = getMinimalSalaryWorker(employeesOfDep);
         return minSalaryOfDep;
     }
-    public static Employee getEmployeeWithMaxSalary(Employee[] workers, int department) {
+    public static Employee getEmployeeMaxSalaryDep(Employee[] workers, int department) {
         Employee[] employeesOfDep = getEmployeesOfOneDepartment(workers, department);
         Employee maxSalaryOfDep  = getMaximalSalaryWorker(employeesOfDep);
         return maxSalaryOfDep;
     }
+    public static double getAverageSalaryDep (Employee[] workers, int department) {
+        Employee[] employeesOfDep = getEmployeesOfOneDepartment(workers, department);
+        double averageSalaryDep = getAverageSalary(employeesOfDep);
+        return averageSalaryDep;
+    }
+
+    public static int getSummarySalaryDep(Employee[] workers, int department) {
+        Employee[] employeesOfDep = getEmployeesOfOneDepartment(workers, department);
+        int sum = getSummarySalary(employeesOfDep);
+        return sum;
+    }
+
 
 
     // Блок переопределений
