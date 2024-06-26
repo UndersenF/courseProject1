@@ -68,7 +68,7 @@ public class Employee {
     public static Employee getMinimalSalaryWorker(Employee[] workers) {
         Employee employeeMinSalary = workers[0];
         for (int i = 0; i < getAmountOfEmployees(workers); i++) {
-            if(workers[i] != null && workers[i].getSalary() < employeeMinSalary.getSalary()) {
+            if (workers[i] != null && workers[i].getSalary() < employeeMinSalary.getSalary()) {
                 employeeMinSalary = workers[i];
             }
         }
@@ -89,7 +89,7 @@ public class Employee {
     public static void printAllNames(Employee[] workers) {
         for (Employee worker : workers) {
             if (worker != null) {
-            System.out.println(worker.person);
+                System.out.println(worker.person);
             }
         }
     }
@@ -103,13 +103,14 @@ public class Employee {
     public static int getAmountOfEmployees(Employee[] workers) {
         int counter = 0;
         for (int i = 0; i < workers.length; i++) {
-            if(workers[i] != null)  {
+            if (workers[i] != null) {
                 counter++;
             }
         }
         return counter;
     }
-    public static Employee[] getEmployeesOfOneDepartment (Employee[] workers, int department) {
+
+    public static Employee[] getEmployeesOfOneDepartment(Employee[] workers, int department) {
         Employee[] workersFromOneDepartment = new Employee[getAmountOfEmployees(workers)];
         int j = 0;
         for (int i = 0; i < workers.length; i++) {
@@ -123,15 +124,17 @@ public class Employee {
 
     public static Employee getEmployeeMinSalaryDep(Employee[] workers, int department) {
         Employee[] employeesOfDep = getEmployeesOfOneDepartment(workers, department);
-        Employee minSalaryOfDep  = getMinimalSalaryWorker(employeesOfDep);
+        Employee minSalaryOfDep = getMinimalSalaryWorker(employeesOfDep);
         return minSalaryOfDep;
     }
+
     public static Employee getEmployeeMaxSalaryDep(Employee[] workers, int department) {
         Employee[] employeesOfDep = getEmployeesOfOneDepartment(workers, department);
-        Employee maxSalaryOfDep  = getMaximalSalaryWorker(employeesOfDep);
+        Employee maxSalaryOfDep = getMaximalSalaryWorker(employeesOfDep);
         return maxSalaryOfDep;
     }
-    public static double getAverageSalaryDep (Employee[] workers, int department) {
+
+    public static double getAverageSalaryDep(Employee[] workers, int department) {
         Employee[] employeesOfDep = getEmployeesOfOneDepartment(workers, department);
         double averageSalaryDep = getAverageSalary(employeesOfDep);
         return averageSalaryDep;
@@ -142,30 +145,35 @@ public class Employee {
         int sum = getSummarySalary(employeesOfDep);
         return sum;
     }
-    public static void increaseSalary (Employee[] workers, double percent) {
+
+    public static void increaseSalary(Employee[] workers, double percent) {
         double ratio = 1 + percent / 100;
         for (int i = 0; i < getAmountOfEmployees(workers); i++) {
-            if(workers[i] != null) {
+            if (workers[i] != null) {
                 workers[i].setSalary((int) (workers[i].salary * ratio));
             }
         }
     }
-    public static void increaseDepSalary (Employee[] workers, int department, double percent) {
+
+    public static void increaseDepSalary(Employee[] workers, int department, double percent) {
         Employee[] employeesOfDep = getEmployeesOfOneDepartment(workers, department);
         increaseSalary(employeesOfDep, percent);
     }
-    public static void printDepEmployee (Employee[] workers, int department) {
+
+    public static void printDepEmployee(Employee[] workers, int department) {
         Employee[] employeesOfDep = getEmployeesOfOneDepartment(workers, department);
         printWorkersOfDep(employeesOfDep);
     }
-    public static void printWorkersOfDep (Employee[] workers) {
+
+    public static void printWorkersOfDep(Employee[] workers) {
         for (Employee worker : workers) {
-            if(worker != null) {
+            if (worker != null) {
                 System.out.println(worker.id + " " + worker.person + " " + worker.salary);
             }
         }
     }
-    public static Employee[] getWorkersWithSalaryHigher (Employee[] workers, int edgeSalary) {
+
+    public static Employee[] getWorkersWithSalaryHigher(Employee[] workers, int edgeSalary) {
         Employee[] workersWithHigherSalary = new Employee[getAmountOfEmployees(workers)];
         for (int i = 0; i < workers.length; i++) {
             if (workers[i] != null && workers[i].salary >= edgeSalary) {
@@ -174,7 +182,8 @@ public class Employee {
         }
         return workersWithHigherSalary;
     }
-    public static Employee[] getWorkersWithSalaryLower (Employee[] workers, int edgeSalary) {
+
+    public static Employee[] getWorkersWithSalaryLower(Employee[] workers, int edgeSalary) {
         Employee[] workersWithLowerSalary = new Employee[getAmountOfEmployees(workers)];
         for (int i = 0; i < workers.length; i++) {
             if (workers[i] != null && workers[i].salary < edgeSalary) {
@@ -183,8 +192,6 @@ public class Employee {
         }
         return workersWithLowerSalary;
     }
-
-
 
 
     // Блок переопределений

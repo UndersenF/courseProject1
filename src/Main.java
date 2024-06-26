@@ -43,18 +43,18 @@ public class Main {
         System.out.println("Средняя ЗП - " + Employee.getAverageSalary(workZone));
         System.out.println("___________");
         System.out.println(Employee.getAmountOfEmployees(workZone));
-        System.out.println("Минимальная зарплата в отделе у  - " + Employee.getEmployeeMinSalaryDep(workZone,1));
-        System.out.println("Максимальная зарплата в отделе у  - " + Employee.getEmployeeMaxSalaryDep(workZone,1));
+        System.out.println("Минимальная зарплата в отделе у  - " + Employee.getEmployeeMinSalaryDep(workZone, 1));
+        System.out.println("Максимальная зарплата в отделе у  - " + Employee.getEmployeeMaxSalaryDep(workZone, 1));
         System.out.println("Середняя ЗП по отделу - " + Employee.getAverageSalaryDep(workZone, 1));
-        System.out.println("Суммарная ЗП по отделу - " + Employee.getSummarySalaryDep(workZone,1));
-        Employee.increaseDepSalary(workZone,1,100);
-        System.out.println(Arrays.toString(Employee.getEmployeesOfOneDepartment(workZone,1)));
+        System.out.println("Суммарная ЗП по отделу - " + Employee.getSummarySalaryDep(workZone, 1));
+        Employee.increaseDepSalary(workZone, 1, 100);
+        System.out.println(Arrays.toString(Employee.getEmployeesOfOneDepartment(workZone, 1)));
         System.out.println("Проиндексированные ЗП 1-ого отдела");
-        Employee.printDepEmployee(workZone,1);
+        Employee.printDepEmployee(workZone, 1);
         System.out.println("______");
-        Employee.printAllEmployee(Employee.getWorkersWithSalaryHigher(workZone,50000));
+        Employee.printAllEmployee(Employee.getWorkersWithSalaryHigher(workZone, 50000));
         System.out.println("______");
-        Employee.printAllEmployee(Employee.getWorkersWithSalaryLower(workZone,50000));
+        Employee.printAllEmployee(Employee.getWorkersWithSalaryLower(workZone, 50000));
 
     }
 }
