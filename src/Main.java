@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         Employee[] workZone = new Employee[10];
@@ -33,7 +35,7 @@ public class Main {
         workZone[8] = employeeNine;
         workZone[9] = employeeTen;
 
-        Employee.getAllEmployee(workZone);
+        Employee.printAllEmployee(workZone);
         System.out.println("Затраты на ЗП - " + Employee.getSummarySalary(workZone));
         System.out.println("Минимальная ЗП из всех работников " + Employee.getMinimalSalaryWorker(workZone));
         System.out.println("Максимальная ЗП из всех работников " + Employee.getMaximalSalaryWorker(workZone));
@@ -45,6 +47,14 @@ public class Main {
         System.out.println("Максимальная зарплата в отделе у  - " + Employee.getEmployeeMaxSalaryDep(workZone,1));
         System.out.println("Середняя ЗП по отделу - " + Employee.getAverageSalaryDep(workZone, 1));
         System.out.println("Суммарная ЗП по отделу - " + Employee.getSummarySalaryDep(workZone,1));
+        Employee.increaseDepSalary(workZone,1,100);
+        System.out.println(Arrays.toString(Employee.getEmployeesOfOneDepartment(workZone,1)));
+        System.out.println("Проиндексированные ЗП 1-ого отдела");
+        Employee.printDepEmployee(workZone,1);
+        System.out.println("______");
+        Employee.printAllEmployee(Employee.getWorkersWithSalaryHigher(workZone,50000));
+        System.out.println("______");
+        Employee.printAllEmployee(Employee.getWorkersWithSalaryLower(workZone,50000));
 
     }
 }

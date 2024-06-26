@@ -47,9 +47,11 @@ public class Employee {
     }
 
     //блок методов
-    public static void getAllEmployee(Employee[] workers) {
+    public static void printAllEmployee(Employee[] workers) {
         for (Employee worker : workers) {
-            System.out.println(worker);
+            if (worker != null) {
+                System.out.println(worker);
+            }
         }
     }
 
@@ -57,7 +59,7 @@ public class Employee {
         int sum = 0;
         for (Employee worker : workers) {
             if (worker != null) {
-            sum += worker.salary;
+                sum += worker.salary;
             }
         }
         return sum;
@@ -86,10 +88,9 @@ public class Employee {
 
     public static void printAllNames(Employee[] workers) {
         for (Employee worker : workers) {
-            if (worker == null) {
-                continue;
-            }
+            if (worker != null) {
             System.out.println(worker.person);
+            }
         }
     }
 
@@ -98,17 +99,6 @@ public class Employee {
         return averageSalary;
     }
 
-//    public static int getMaximalID(Employee[] workers) {
-//        int maxId = workers[0].id;
-//        for (int i = 0; i < workers.length; i++) {
-//            if (workers[i] == null) {
-//                continue;
-//            } else if (workers[i].id > maxId) {
-//                maxId = workers[i].id;
-//            }
-//        }
-//        return maxId;
-//    }
 
     public static int getAmountOfEmployees(Employee[] workers) {
         int counter = 0;
@@ -152,6 +142,48 @@ public class Employee {
         int sum = getSummarySalary(employeesOfDep);
         return sum;
     }
+    public static void increaseSalary (Employee[] workers, double percent) {
+        double ratio = 1 + percent / 100;
+        for (int i = 0; i < getAmountOfEmployees(workers); i++) {
+            if(workers[i] != null) {
+                workers[i].setSalary((int) (workers[i].salary * ratio));
+            }
+        }
+    }
+    public static void increaseDepSalary (Employee[] workers, int department, double percent) {
+        Employee[] employeesOfDep = getEmployeesOfOneDepartment(workers, department);
+        increaseSalary(employeesOfDep, percent);
+    }
+    public static void printDepEmployee (Employee[] workers, int department) {
+        Employee[] employeesOfDep = getEmployeesOfOneDepartment(workers, department);
+        printWorkersOfDep(employeesOfDep);
+    }
+    public static void printWorkersOfDep (Employee[] workers) {
+        for (Employee worker : workers) {
+            if(worker != null) {
+                System.out.println(worker.id + " " + worker.person + " " + worker.salary);
+            }
+        }
+    }
+    public static Employee[] getWorkersWithSalaryHigher (Employee[] workers, int edgeSalary) {
+        Employee[] workersWithHigherSalary = new Employee[getAmountOfEmployees(workers)];
+        for (int i = 0; i < workers.length; i++) {
+            if (workers[i] != null && workers[i].salary >= edgeSalary) {
+                workersWithHigherSalary[i] = workers[i];
+            }
+        }
+        return workersWithHigherSalary;
+    }
+    public static Employee[] getWorkersWithSalaryLower (Employee[] workers, int edgeSalary) {
+        Employee[] workersWithLowerSalary = new Employee[getAmountOfEmployees(workers)];
+        for (int i = 0; i < workers.length; i++) {
+            if (workers[i] != null && workers[i].salary < edgeSalary) {
+                workersWithLowerSalary[i] = workers[i];
+            }
+        }
+        return workersWithLowerSalary;
+    }
+
 
 
 
